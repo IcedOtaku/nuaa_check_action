@@ -216,10 +216,10 @@ def send_result(config, recever, result, messgae):
     smtp_host = config['smtp_host']
     if result == True:
         send_mail(mail_sender, smtp_password, smtp_host,
-                  recever, messgae, '打卡成功', '主人', '打卡姬')
+                  recever, messgae, '打卡成功', '主人', '然然打卡机')
     else:
         send_mail(mail_sender, smtp_password, smtp_host,
-                  recever, messgae, '打卡失败', '主人', '打卡姬')
+                  recever, messgae, '打卡失败', '主人', '然然打卡机')
 
 def main():
     try:
