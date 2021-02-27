@@ -116,7 +116,7 @@ def get_uid_id(cookies):
             response.encoding = 'utf-8'
             uid = re.search(r'"uid":"([0-9]*)"', response.text).group(1)
             id = re.search(r'"id":([0-9]*)', response.text).group(1)
-            return uid, id, 'UID: {} ID: {}\n'.format(str(uid), str(id))
+            return uid, id, 'UID: {}\nID: {}\n'.format(str(uid), str(id))
         except:
             traceback.print_exc()
     # 就这样吧，让他崩溃，万一假打卡了就不好了
@@ -242,7 +242,7 @@ def main():
             geo_api_info = get_address_info(longitude, latitude)
             uid, id, message1 = get_uid_id(cookies)
             result, message2 = check(cookies, geo_api_info, id, uid)
-            message += message1 + '学号: {}'.format(stu_number) + message2
+            message += message1 + '学号: {} \n'.format(stu_number) + '地址: {} \n'.format(geo_api_info['formattedAddress']) + message2
         except:
             print('发生错误，可能原因是打卡密码错误或者经纬度错误')
             message += '发生错误，可能原因是打卡密码错误或者经纬度错误'
